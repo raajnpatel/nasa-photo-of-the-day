@@ -17,6 +17,16 @@ function App() {
         console.log(today.getMonth()+1);
         console.log(today.getDate());
     }, [selectDate]);
+
+    axios
+        .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        .then((response) => {
+           console.log(response);
+           setTitle(response.data.title);
+           setHdurl(response.data.hdurl);
+           setUrl(response.data.url);
+           setExplanation(response.data.explanation);
+        });
   return (
     <div className="App">
       <p>
