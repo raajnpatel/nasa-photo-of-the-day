@@ -18,15 +18,15 @@ function App() {
         console.log("test");
         let today = new Date;
 
-        console.log(today.getFullYear());
-        console.log(today.getMonth()+1);
-        console.log(today.getDate());
+        // console.log(today.getFullYear());
+        // console.log(today.getMonth()+1);
+        // console.log(today.getDate());
     }, [selectDate]);
 
     axios
         .get("https://api.nasa.gov/planetary/apod?api_key=0aaDPjJbZKQr2kJOxmNw37yDqhX8wpJXgLwQbOKo")
         .then((response) => {
-           console.log(response);
+           // console.log(response);
            setTitle(response.data.title);
            setHdurl(response.data.hdurl);
            setUrl(response.data.url);
