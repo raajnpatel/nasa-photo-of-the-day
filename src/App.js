@@ -1,11 +1,16 @@
 import React, {useState, useEffect} from "react";
-import "./App.css";
+import "./App.scss";
+import 'bootstrap';
 import axios from "axios";
 import Header from "./components/Header";
 import Content from './components/Content';
 import Footer from './components/Footer';
-import DatePicker from "react-datepicker"
+import 'semantic-ui-css/semantic.min.css';
+import styled from "styled-components";
+
+
 import "react-datepicker/dist/react-datepicker.css";
+
 
 function App() {
     const [title, setTitle] = useState();
@@ -15,9 +20,9 @@ function App() {
     const [selectDate, setSelectDate] = useState();
 
     useEffect(() => {
-        console.log("test");
+        // console.log("test");
         let today = new Date;
-
+        // console.log(today);
         // console.log(today.getFullYear());
         // console.log(today.getMonth()+1);
         // console.log(today.getDate());
