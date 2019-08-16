@@ -7,8 +7,7 @@ import Content from './components/Content';
 import Footer from './components/Footer';
 import 'semantic-ui-css/semantic.min.css';
 import styled from "styled-components";
-
-
+import DatePicker from "./components/DatePicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -17,30 +16,26 @@ function App() {
     const [hdurl, setHdurl] = useState();
     const [url, setUrl] = useState();
     const [explanation, setExplanation] = useState();
-    const [selectDate, setSelectDate] = useState();
+    const [datePicker, setDatePicker] = useState(new Date());
 
     useEffect(() => {
-        // console.log("test");
-        let today = new Date;
-        // console.log(today);
-        // console.log(today.getFullYear());
-        // console.log(today.getMonth()+1);
-        // console.log(today.getDate());
-    }, [selectDate]);
-
-    axios
-        .get("https://api.nasa.gov/planetary/apod?api_key=0aaDPjJbZKQr2kJOxmNw37yDqhX8wpJXgLwQbOKo")
-        .then((response) => {
-           // console.log(response);
-           setTitle(response.data.title);
-           setHdurl(response.data.hdurl);
-           setUrl(response.data.url);
-           setExplanation(response.data.explanation);
-        });
+        const dateString = `${datePicker.getFullYear()}-${datePicker.getMonth() + 1}-${datePicker.getDate()}`;
+        console.log(dateString);
+        axios
+            .get(`https://api.nasa.gov/planetary/apod?api_key=0aaDPjJbZKQr2kJOxmNw37yDqhX8wpJXgLwQbOKo&date=${dateString}`)
+            .then((response) => {
+                console.log(response);
+                setTitle(response.data.title);
+                setHdurl(response.data.hdurl);
+                setUrl(response.data.url);
+                setExplanation(response.data.explanation);
+            });
+    });
   return (
     <div className="App">
+        <DatePicker/>
         <Header/>
-        <Content title = {title} hdurl = {hdurl} explanation = {explanation}/>
+        <Content title = {title} hdurl = {hdurl} explanation = {explanation} url = {url}/>
         <Footer/>
     </div>
   );

@@ -1,10 +1,28 @@
+html {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  vertical-align: center;
+  background-image: url('https://timedotcom.files.wordpress.com/2017/03/hollywood-misconceptions-about-female-astronauts-space.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+body {
+  background: transparent !important;
+  height: max-content !important;
+}
 
 .App {
+  position: relative;
+  top: 135px;
   text-align: center;
-  max-width: 75vw;
-  max-height: 100vh;
-  margin: 4% auto;
+  max-width: 65vw;
+  border-radius: 10px;
+  max-height: 75vh;
+  margin: 4%;
+  padding: 2%;
+  background: rgba(183, 184, 245, 0.86);
 }
 
 .App-logo {
@@ -49,5 +67,14 @@
 }
 
 .image {
-  width: 600px;
+  margin: 3% 0;
+  width: 45vw;
+}
+
+.buttonsMid {
+  margin: 3% 0;
+}
+
+.primaryButton {
+  background-color:  green !important;
 }
